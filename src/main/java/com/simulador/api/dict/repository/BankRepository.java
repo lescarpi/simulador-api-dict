@@ -10,4 +10,6 @@ public interface BankRepository extends JpaRepository<Bank, Long> {
 
     Optional<Bank> findByUuid(UUID uuid);
 
+    Optional<Bank> findByCode(String code);
+
 }

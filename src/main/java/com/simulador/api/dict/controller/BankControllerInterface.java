@@ -13,10 +13,10 @@ import java.util.UUID;
 public interface BankControllerInterface {
 
     @PostMapping("/create")
-    public ResponseEntity<?> create(CreateBankRequest request);
+    public ResponseEntity<?> create(@RequestBody CreateBankRequest request);
 
     @PutMapping("/update")
-    public ResponseEntity<?> update(UpdateBankRequest request);
+    public ResponseEntity<?> update(@RequestBody UpdateBankRequest request);
 
     @GetMapping("/get")
     public ResponseEntity<Page<BankResponse>> get(@RequestParam int page, @RequestParam int size);

@@ -1,15 +1,21 @@
 package com.simulador.api.dict.controller;
 
-import com.simulador.api.dict.rest.request.CreateOrUpdateKeyRequest;
-import com.simulador.api.dict.rest.response.KeyResponse;
+import com.simulador.api.dict.rest.request.CreateKeyRequest;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.UUID;
+
+@RequestMapping("keys")
 public interface KeyControllerInterface {
 
-    public ResponseEntity<?> create(CreateOrUpdateKeyRequest request);
+    @PostMapping("/create")
+    public ResponseEntity<?> create(@RequestBody CreateKeyRequest request);
 
-    public ResponseEntity<?> update(CreateOrUpdateKeyRequest request);
-
-    public ResponseEntity<KeyResponse> get(String keyValue);
+    @GetMapping("/get/{uuid}")
+    public ResponseEntity<?> get(UUID uuid);
 
 }
